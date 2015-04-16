@@ -1,0 +1,19 @@
+{
+  "uuid": "186126b1-f071-4659-8270-220a8140d095",
+  "shortName": "PebbleTut1",
+  "longName": "PebbleTut1",
+  "companyName": "MakeAwesomeHappen",
+  "versionCode": 1,
+  "versionLabel": "1.0",
+  "sdkVersion": "3",
+  "targetPlatforms": ["aplite", "basalt"],
+  "watchapp": {
+    "watchface": false
+  },
+  "appKeys": {
+    "dummy": 0
+  },
+  "resources": {
+    "media": []
+  }
+}
