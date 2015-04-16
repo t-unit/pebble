@@ -3,6 +3,17 @@
 static Window *window;
 static TextLayer *text_layer;
 
+static void appmsg_in_dropped(AppMessageResult reason, void *context) {
+    APP_LOG(APP_LOG_LEVEL_DEBUG, "In dropped: %i", reason);
+}
+
+static void message_handler(DictionaryIterator *iter, void *context) {
+    APP_LOG(APP_LOG_LEVEL_DEBUG, "Received message.");
+    Tuple *msg_type_tuple = dict_find(iter, PebbleMessageKeyType);
+    Tuple *msg_value_tuple = dict_find(iter, PebbleMessageKeyValue);
+    
+    text_layer_set_text(text_layer, msg_value_tuple->value->cstring);
+}
 
 static void window_load(Window *window) {
   Layer *window_layer = window_get_root_layer(window);
@@ -27,6 +38,16 @@ static void init(void) {
   });
   const bool animated = true;
   window_stack_push(window, animated);
+}
+
+static void setupMessages() {
+    app_comm_set_sniff_interval(SNIFF_INTERVAL_NORMAL);
+    
+    app_message_register_inbox_received(message_handler);
+    app_message_register_inbox_dropped(message_dropped);
+    
+    app_message_open(app_message_inbox_size_maximum(), app_message_outbox_size_maximum());
+    APP_LOG(APP_LOG_LEVEL_DEBUG, "App Message set up.");
 }
 
 static void deinit(void) {
