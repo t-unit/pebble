@@ -1,0 +1,11 @@
+
+platform :ios, '8.0'
+
+target 'Pebbel iOS App' do
+    pod 'PebbleKit'
+end
+
+target 'Pebbel iOS AppTests' do
+
+end
+
