@@ -1,14 +1,19 @@
+//
+//  Pebble_AppTests.m
+//  Pebble AppTests
+//
 //  Created by Tobias Ottenweller on 16/04/15.
-//  Copyright (c) 2015 Tobias Ottenweller.
+//  Copyright (c) 2015 Tobias Ottenweller. All rights reserved.
+//
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 
-@interface Pebbel_AppTests : XCTestCase
+@interface Pebble_AppTests : XCTestCase
 
 @end
 
-@implementation Pebbel_AppTests
+@implementation Pebble_AppTests
 
 - (void)setUp {
     [super setUp];
